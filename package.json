@@ -1,0 +1,12 @@
+{
+  "name": "free_code_camp_landing_page",
+  "version": "1.0.0",
+  "description": "free code camp project",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Longe Obrien",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}

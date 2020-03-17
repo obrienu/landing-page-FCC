@@ -1,0 +1,334 @@
+@import "./config";
+
+$background-color: #fdeca6;
+$white-text: #fff;
+$large-text: 2rem;
+$normal-text: 1rem;
+$small-text: 0.7rem;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $white-text;
+  text-decoration: none;
+  &:hover,
+  &:active {
+    color: $white-text;
+    text-decoration: none;
+  }
+}
+
+$background-color: #fdeca6;
+$white-text: #fff;
+$large-text: 1.5rem;
+$normal-text: 1rem;
+$small-text: 0.7rem;
+
+//******************* UTILS****************************//
+@mixin easeOut {
+  transition: ease-out 300ms all;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 1rem 0;
+}
+
+.btn-lg {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  color: black;
+  background: $background-color;
+  @include easeOut();
+}
+
+.btn-sm {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: black;
+  background: $background-color;
+  @include easeOut;
+}
+
+#video {
+  @include mediaLg {
+    margin-top: 4rem;
+  }
+}
+//***********************Header Background*********************//
+
+header#header {
+  width: 100%;
+  height: 80vh;
+  background-image: url("../images/bg_sm.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  @include mediaMd {
+    background-image: url("../images/bg_md.jpg");
+  }
+  @include mediaLg {
+    background-image: url("../images/bg_lg.jpg");
+    height: 100vh;
+  }
+  @include mediaXl {
+    height: 100vh;
+  }
+
+  #header-container {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    @include mediaLg {
+      width: 90%;
+      margin: 0 auto;
+      position: fixed;
+      right: 5%;
+      z-index: 3;
+    }
+  }
+
+  //************LOGO**********************//
+
+  #header-img {
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mediaLg {
+      width: 6rem;
+      display: block;
+    }
+  }
+
+  //***********NAV************************//
+
+  #nav-bar {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+    background-color: rgba(darken($background-color, 70), 0.8);
+    font-size: $large-text;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    border-right: yellow 3px solid;
+    transform: translateX(-50vw);
+    //transform: translate3d(-50vw, 0, 0);
+    @include easeOut;
+
+    @include mediaLg {
+      font-size: $normal-text;
+      border: 0;
+      border-bottom: yellow 3px solid;
+      position: relative;
+      flex-flow: row nowrap;
+      width: calc(100vw - 6rem);
+      height: 4rem;
+      z-index: 3;
+      transform: translate3d(0, 0, 0);
+      justify-content: space-evenly;
+    }
+
+    &.nav-bar-show {
+      transform: translateX(0vw);
+    }
+  }
+
+  .nav-item {
+    margin: 1rem;
+    padding: 0.5rem;
+    border-bottom: $white-text 3px solid;
+    @include easeOut;
+
+    @include mediaLg {
+      text-align: center;
+      margin: 0;
+    }
+    .nav-link {
+      width: 100%;
+      @include easeOut;
+    }
+
+    &:hover {
+      border-bottom: yellow 3px solid;
+      .nav-link {
+        color: yellow;
+      }
+    }
+  }
+  .nav-item:first-child {
+    margin-top: 5rem;
+
+    @include mediaLg {
+      margin-top: 0;
+    }
+  }
+}
+
+// ****************NAV ICON**********************//
+
+#menu-icon {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border: rgba(0, 0, 0, 0.842) 5px double;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  cursor: pointer;
+  z-index: 3;
+
+  .menu-bar {
+    width: 80%;
+    height: 10%;
+    background: rgba(0, 0, 0, 0.842);
+    margin: 3px 0;
+    @include easeOut();
+  }
+
+  @include mediaLg {
+    display: none;
+  }
+
+  &.menu-bar-icon {
+    .menu-bar:first-child {
+      transform: translate(0, 5px) rotate(45deg);
+    }
+    .menu-bar:nth-child(2) {
+      display: none;
+    }
+    .menu-bar:last-child {
+      transform: translate(0, -5px) rotate(135deg);
+    }
+  }
+}
+
+//*******************HEADER TEXT*********************//
+
+#header-text {
+  margin-top: 30vh;
+  font-size: $normal-text;
+  width: 80%;
+  margin-left: 1rem;
+  background-color: rgba(darken($background-color, 70), 0.8);
+  color: $white-text;
+  padding: 1rem;
+  
+
+  @include mediaMd {
+    width: 60%;
+  }
+
+  @include mediaLg {
+    margin-top: 0;
+    position: relative;
+    top: 50vh;
+    width: 50%;
+    font-size: $large-text;
+    z-index: 1;
+  }
+}
+
+//******************PRODUCTS SECTION****************//
+
+main {
+  background: whitesmoke;
+
+  section {
+    background: $white-text;
+    margin: 2rem auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 6%;
+
+    @include mediaLg {
+      width: 80%;
+      margin: 2 auto;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-text {
+      text-align: justify;
+      padding: 1rem;
+    }
+
+    //************************ABOUT*************************//
+    &#about {
+      .about-media {
+        grid-area: media;
+        width: 100%;
+        height: 100%;
+        background-image: url("/assets/images/bg_md.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .about-text {
+        grid-area: aboutText;
+      }
+      grid-template-areas: "aboutText" "media";
+      grid-template-rows: max-content 15rem;
+      @include mediaLg {
+        grid-template-areas: "media aboutText";
+        grid-template-rows: max-content;
+      }
+    }
+
+    //********************CONTACT SECTION********************//
+
+    .contact-form {
+      margin: 1rem 0;
+      #form {
+        margin: 1rem 0;
+        .form-group {
+          width: 90%;
+          margin: 1rem auto;
+          display: grid;
+          grid-template-columns: 1fr 5fr;
+
+          label {
+            width: 100%;
+          }
+
+          input {
+            width: 100%;
+            @include easeOut;
+            &:focus-within {
+              border: none;
+              border-bottom: solid black 1px;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
